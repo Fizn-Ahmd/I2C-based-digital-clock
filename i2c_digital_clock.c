@@ -17,12 +17,13 @@ void main()
 	lcd_cmd(0xc);
 
 	while (1) {
-		hr = i2c_read_data(0xD0,0x02);
-		min = i2c_read_data(0xD0,0x01);
-		sec = i2c_read_data(0xD0,0x00);
-		day = i2c_read_data(0xD0,0x04);
-		mon = i2c_read_data(0xD0,0x05);
+		hr   = i2c_read_data(0xD0,0x02);
+		min  = i2c_read_data(0xD0,0x01);
+		sec  = i2c_read_data(0xD0,0x00);
+		day  = i2c_read_data(0xD0,0x04);
+		mon  = i2c_read_data(0xD0,0x05);
 		year = i2c_read_data(0xD0,0x06);
+
 		lcd_cmd(0x80);
 		lcd_input(hr/16+48);
 		lcd_input(hr%16+48);
@@ -61,7 +62,7 @@ void main()
 
 	while (1) {
 		if (sw1 == 0) {
-			while(sw1 == 0);
+			while (sw1 == 0);
 			lcd_cmd(0xe);
 			if (fl == 0) {
 				hr = hr+1;
@@ -114,7 +115,7 @@ void main()
 			if (fl == 3) {
 				lcd_next_day(day);
 				fl = fl + 1;
-				if(mon < 10)
+				if (mon < 10)
 					lcd_input('0');
 				else
 					lcd_input('1');

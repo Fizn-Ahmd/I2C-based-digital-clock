@@ -98,9 +98,9 @@ void lcd_hex(u8 n)
 	if (n == 0) {
 		lcd_input('0');
 	}
-	while(n) {
+	while (n) {
 		n1 = n%16;
-		if(n1 >= 10)
+		if (n1 >= 10)
 			buf[ik] = n1 + 55;
 		else
 			buf[ik] = n1 + 48;
