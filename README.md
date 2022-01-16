@@ -15,13 +15,14 @@ Load the folder into the kiel IDE and compile the code. Refer https://www.keil.c
 
 **Step 2:**
 
-Once the hex code is generated, load the 8051 board/simulator and make all the connections with respect to pin number assinged in the header file.
+Once the hex code is generated, load the 8051 board/simulator and make all the connections with respect to pin number assigned in the header file.
 
 That's it, Now restart the board if it's physical one. The code will start executing.
 
 **Direction of Use:**
 
-Switch-0 : You can long press switch 0 to enter edit mode.
-Switch-1 : This switch is to change the cursor position.
-Switch-2 : This is to change the numbers in each position.
-Switch-3 : To save and go back.
+1. **Switch-0 :** Long press switch 0 to enter edit mode.
+2. **Switch-1 :** This is to change the cursor position.
+3. **Switch-2 :** This is to change the numbers in each position.
+4. **Switch-3 :** To save and go back.
+
