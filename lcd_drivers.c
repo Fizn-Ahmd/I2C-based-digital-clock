@@ -37,11 +37,11 @@ void lcd_cmd(u8 ch)
 u8 read_lcd()
 {
 	u8 r;
-	//lcd_cmd(0x88);
+	// lcd_cmd(0x88);
 	rs = 1;
 	rw = 1;
 	delay_1s(3);
-	en = 1;        
+	en = 1;
 	delay_1s(3);
 	en = 0;
 	r = port;
@@ -52,9 +52,9 @@ u8 read_lcd()
 u8 int_to_hex(u8 h)
 {
 	u8 te = 0, x, y;
-	x = h/10;
-	te |= x<<4;
-	y = h%10;
+	x = h / 10;
+	te |= x << 4;
+	y = h % 10;
 	te |= y;
 	return te;
 }
@@ -62,10 +62,10 @@ u8 int_to_hex(u8 h)
 /* Converting Hex to integer Value */
 u8 hex_to_int(u8 h)
 {
-	u8 te = 0,x,y;
-	x = h/16;
-	y = h%16;
-	te = (x*10) + y;
+	u8 te = 0, x, y;
+	x = h / 16;
+	y = h % 16;
+	te = (x * 10) + y;
 	return te;
 }
 
@@ -78,12 +78,12 @@ void lcd_integer(u8 n)
 		lcd_input('0');
 		lcd_input('0');
 	}
-	if ( n > 0 && n < 10)
+	if (n > 0 && n < 10)
 		lcd_input('0');
-	while(n) {
-		buf[ik] = n%10 + 48;
+	while (n) {
+		buf[ik] = n % 10 + 48;
 		ik++;
-		n = n/10;
+		n = n / 10;
 	}
 	for (--ik; ik >= 0; ik--)
 		lcd_input(buf[ik]);
@@ -99,13 +99,13 @@ void lcd_hex(u8 n)
 		lcd_input('0');
 	}
 	while (n) {
-		n1 = n%16;
+		n1 = n % 16;
 		if (n1 >= 10)
 			buf[ik] = n1 + 55;
 		else
 			buf[ik] = n1 + 48;
 		ik++;
-		n = n/16;
+		n = n / 16;
 	}
 	for (--ik; ik >= 0; ik--)
 		lcd_input(buf[ik]);

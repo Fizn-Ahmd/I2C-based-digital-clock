@@ -1,10 +1,10 @@
-#include <reg51.h>
 #include <intrins.h>
+#include <reg51.h>
 
 #include "i2c_digital_clock.h"
 
-sbit sda = P2^0;
-sbit scl = P2^1;
+sbit sda = P2 ^ 0;
+sbit scl = P2 ^ 1;
 
 void start_condition()
 {
@@ -24,9 +24,9 @@ void stop_condition()
 void write(u8 d)
 {
 	s8 i;
-	for (i = 7; i >= 0 ; i--) {
+	for (i = 7; i >= 0; i--) {
 		scl = 0;
-		sda = ((d>>i) & 1) ? 1 : 0;
+		sda = ((d >> i) & 1) ? 1 : 0;
 		scl = 1;
 	}
 }
@@ -38,7 +38,7 @@ u8 read()
 	for (i = 7; i >= 0; i--) {
 		scl = 1;
 		if (sda == 1)
-			temp |= (1<<i);
+			temp |= (1 << i);
 		scl = 0;
 	}
 	return temp;
